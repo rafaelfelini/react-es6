@@ -9,9 +9,9 @@ gulp.task('build', function () {
 
   return browserify({entries: 'src/js/app.jsx', extensions: ['.jsx'], debug: true})
     .transform('babelify', {presets: ['es2015', 'react']})
-    .external(dependencies)
+    // .external(dependencies) TODO generate dependencies in another bundle
     .bundle()
-    .pipe(source('bundle.js'))
+    .pipe(source('app.js'))
     .pipe(gulp.dest('dist'))
 })
 
